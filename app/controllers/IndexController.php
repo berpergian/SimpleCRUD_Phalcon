@@ -8,15 +8,7 @@ class IndexController extends ControllerBase
       $data = Mahasiswa::find([
   			'order' => 'name'
   		]);
-
-  		/*$data = array();
-  		foreach ($mhs as $m) {
-  			$data[] = array(
-  			'nim'   => $m->nim,
-  			'name' => $m->name,
-  			'department' => $m->department
-  			);
-  		}*/
+      
   		$this->view->data = $data;
     }
 
