@@ -4,20 +4,20 @@
 
 <form action="../update" class="form-horizontal" method="POST">
  <div class="form-group">
-   <label class="control-label col-sm-2" for="username">NIM:</label>
-   <div class="col-sm-10">
+   <label class="control-label col-sm-2" for="nim">NIM:</label>
+   <div class="col-sm-8">
      <input type="text" class="form-control" name="nim" value="<?= $nim ?>" readonly>
    </div>
  </div>
  <div class="form-group">
    <label class="control-label col-sm-2" for="name">Nama:</label>
-   <div class="col-sm-10">
+   <div class="col-sm-8">
      <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" value="<?= $name ?>" required>
    </div>
  </div>
  <div class="form-group">
    <label class="control-label col-sm-2" for="department">Depatemen:</label>
-   <div class="col-sm-10">
+   <div class="col-sm-8">
      <input type="text" class="form-control" name="department" placeholder="Masukkan Departemen" value="<?= $department ?>" required>
    </div>
  </div>
