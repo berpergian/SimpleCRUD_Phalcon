@@ -92,19 +92,19 @@
           <div class="form-group">
             <label class="control-label col-sm-2" for="nim">NIM:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="nim" value="<?= $nim ?>" readonly>
+              <input type="text" class="form-control" id="nim" name="nim" value="<?= $nim ?>" readonly>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-2" for="name">Nama:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="name" placeholder="Masukkan Nama" value="<?= $name ?>" required>
+              <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama" value="<?= $name ?>" required>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-2" for="department">Depatemen:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" name="department" placeholder="Masukkan Departemen" value="<?= $department ?>" required>
+              <input type="text" class="form-control" id="department" name="department" placeholder="Masukkan Departemen" value="<?= $department ?>" required>
             </div>
           </div>
           <div class="form-group">
@@ -140,8 +140,8 @@
         <td><?= $d->name ?></td>
         <td><?= $d->department ?></td>
         <td>
-          <a href="index/edit/<?= $d->nim ?>" class="btn btn-warning" role="button">Edit</a>
-          <!--<a href="" id="edit" data-nim="<?= $d->nim ?>" class="btn btn-warning" data-toggle="modal" data-target="#modalUbah">Ubah</a>-->
+          <!--<a href="index/edit/<?= $d->nim ?>" class="btn btn-warning" role="button">Edit</a>-->
+          <a href="" id="edit" data-nim="<?= $d->nim ?>" data-nama="<?= $d->name ?>" data-depart="<?= $d->department ?>" class="btn btn-warning editbtn" data-toggle="modal" data-target="#modalUbah">Ubah</a>
           <!--<a href="index/delete/<?= $d->nim ?>" class="btn btn-danger" role="button">Hapus</a></td>-->
           <a href="" data-href="index/delete/<?= $d->nim ?>" class="btn btn-danger" data-toggle="modal" data-target="#modalHapus">Hapus</a>
         </td>
