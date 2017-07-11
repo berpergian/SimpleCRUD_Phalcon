@@ -19,7 +19,7 @@ class AddController extends \Phalcon\Mvc\Controller
 		if ($success) {
 			echo "Data berhasil ditambah";
 			echo PHP_EOL ;
-			echo $this->tag->linkTo("index", "Lihat List Mahasiswa");
+			echo $this->tag->linkTo(array("index", "Lihat List Mahasiswa", "class" => "btn-primary"));
 		} else {
 			echo "Terjadi sebuah kesalahan: ";
 			foreach ($add->getMessages() as $message) {

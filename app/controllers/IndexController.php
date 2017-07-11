@@ -1,15 +1,37 @@
 <?php
 
+
 class IndexController extends ControllerBase
 {
 
     public function indexAction()
     {
       $data = Mahasiswa::find([
-  			'order' => 'name'
-  		]);
-      
-  		$this->view->data = $data;
+        'order' => 'nim'
+      ]);
+
+      $this->view->data = $data;
+    }
+
+    public function addAction()
+    {
+      $add = new Mahasiswa();
+
+      $success = $add->save(
+  			$this->request->getPost(),
+  			array('nim','name', 'department')
+  		);
+
+      if($success){
+        $this->view->disable();
+        $this->flashSession->success('Berhasil menyimpan data');
+        $this->response->redirect('index');
+      }
+      else{
+        $this->view->disable();
+        $this->flashSession->error('Gagal menyimpan data');
+        $this->response->redirect('index');
+      }
     }
 
     public function editAction($nim)
