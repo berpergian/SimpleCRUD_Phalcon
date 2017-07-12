@@ -9,10 +9,6 @@
 
 <div class=”flash-message-css”><?php $this->flashSession->output(); ?></div>
 
-<!--<a href="{{url("add")}}" class="btn btn-success" role="button">Tambah</a>-->
-<!--<a class="btn btn-success" href="{{url("add")}}" rel="modal:open">Tambah Data</a>-->
-<!--<a class="btn btn-success" data-toggle="modal" data-target="#modalTambah">Tambah Data</a>-->
-
 <!-- Modal Form Tambah Data Mahasiswa -->
 
 <div class="modal fade" id="modalTambah" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
@@ -67,7 +63,6 @@
       </div>
       <div class="modal-body">
         Yakin untuk menghapus data?
-        <p class="debug-url"></p>
       </div>
       <div class="modal-footer">
         <!--<button type="button" class="btn btn-danger" data-dismiss="modal">Delete</button>-->
@@ -92,24 +87,24 @@
           <div class="form-group">
             <label class="control-label col-sm-2" for="nim">NIM:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="nim" name="nim" value="{{nim}}" readonly>
+              <input type="text" class="form-control edit_nim" id="nim" name="nim" readonly>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-2" for="name">Nama:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="name" name="name" placeholder="Masukkan Nama" value="{{name}}" required>
+              <input type="text" class="form-control edit_name" id="name" name="name" placeholder="Masukkan Nama" required>
             </div>
           </div>
           <div class="form-group">
             <label class="control-label col-sm-2" for="department">Depatemen:</label>
             <div class="col-sm-8">
-              <input type="text" class="form-control" id="department" name="department" placeholder="Masukkan Departemen" value="{{department}}" required>
+              <input type="text" class="form-control edit_department" id="department" name="department" placeholder="Masukkan Departemen" required>
             </div>
           </div>
           <div class="form-group">
             <div class="col-sm-offset-2 col-sm-10">
-              <a name="edit-data" class="btn btn-primary btn-change" role="button">Simpan</a></td>
+              <button id="update" class="btn btn-primary" type="submit">Simpan</button></td>
               <button type="button" class="btn btn-default" data-dismiss="modal">Batal</button>
             </div>
           </div>
@@ -134,15 +129,15 @@
       </tr>
     </thead>
     <tbody>
+      <div class="list_mahasiswa"></div>
       {% for d in data %}
       <tr>
         <td>{{d.nim}}</td>
         <td>{{d.name}}</td>
         <td>{{d.department}}</td>
         <td>
-          <!--<a href="index/edit/{{d.nim}}" class="btn btn-warning" role="button">Edit</a>-->
-          <a href="" id="edit" data-nim="{{d.nim}}" data-nama="{{d.name}}" data-depart="{{d.department}}" class="btn btn-warning editbtn" data-toggle="modal" data-target="#modalUbah">Ubah</a>
-          <!--<a href="index/delete/{{d.nim}}" class="btn btn-danger" role="button">Hapus</a></td>-->
+          <!--<a href="index/edit/{{d.nim}}" class="btn btn-warning" role="button">Ubah</a>-->
+          <a data-nim="{{d.nim}}" data-nama="{{d.name}}" data-depart="{{d.department}}" class="btn btn-warning" id="editbtn" data-toggle="modal" data-target="#modalUbah">Ubah</a>
           <a href="" data-href="index/delete/{{d.nim}}" class="btn btn-danger" data-toggle="modal" data-target="#modalHapus">Hapus</a>
         </td>
       </tr>

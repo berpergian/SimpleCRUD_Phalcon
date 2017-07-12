@@ -57,6 +57,5 @@
         {{ javascript_include('js/bootstrap.min.js') }}
         {{ javascript_include('js/side-navbar.js') }}
         {{ javascript_include('js/custom.js') }}
-        <!--{{ javascript_include('js/jquery.modal.min.js') }}-->
     </body>
 </html>
