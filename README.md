@@ -1,9 +1,9 @@
 # SimpleCRUD_Phalcon
 
-A Simple CRUD Website for my practice with PHP Phalcon Framework.
+A Simple CRUD Website for my practice with PHP Phalcon and CSS Boostrap Framework.
 
 ## Database
-You can use simple_phalcon.sql as your database or make your own database and edit the **/app/config/config.php**
+You can use STUDENT_DATA.sql as your database or make your own database and edit the **/app/config/config.php**
 
 ```
 'database' => [

@@ -41,7 +41,7 @@
                   <a href="#"><span class="ttspan-fill">List Mahasiswa</span></a>
                 </li>-->
                 <li>
-                  <a href="" data-toggle="modal" data-target="#modalTambah"><span class="ttspan-fill">Tambah Data Mahasiswa</span></a>
+                  <a href="" data-toggle="modal" data-target="#addModal"><span class="ttspan-fill">Add Student</span></a>
                 </li>
               </ul>
             </div>

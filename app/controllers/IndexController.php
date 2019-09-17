@@ -6,8 +6,8 @@ class IndexController extends ControllerBase
 
     public function indexAction()
     {
-      $data = Mahasiswa::find([
-        'order' => 'nim'
+      $data = Student::find([
+        'order' => 'id'
       ]);
 
       $this->view->data = $data;
@@ -19,92 +19,74 @@ class IndexController extends ControllerBase
       $this->view->disable();
       $response = new response();
       $output = '';
-      $data = Mahasiswa::find([
-        'order' => 'nim'
+      $data = Student::find([
+        'order' => 'id'
       ]);
 
       $resData = array();
 
       foreach ($data as $result) {
-        $resData[] = array("nim" => $result->nim, "name" => $result->name, "department" => $result->department);
+        $resData[] = array("id" => $result->id, "name" => $result->name, "address" => $result->address);
       }
 
       $response->setContent(json_encode($resData));
       return $response;
-
-      /*while($d = mysqli_fetch_array($data))
-      {
-        $output .= '
-        <tr>
-          <td>'.$d["nim"].'</td>
-          <td>'.$d["name"].'</td>
-          <td>'.$d["department"].'</td>
-          <td>
-            <a data-nim="'.$d["nim"].'" data-nama="'.$d["name"].'" data-depart="'.$d["department"].'" class="btn btn-warning" id="editbtn" data-toggle="modal" data-target="#modalUbah">Ubah</a>
-            <a href="" data-href="index/delete/'.$d["nim"].'" class="btn btn-danger" data-toggle="modal" data-target="#modalHapus">Hapus</a>
-          </td>
-        </tr>
-        ';
-      }
-
-      $this->view->output = $output;*/
-      //$this->view->data = $data;
     }
 
     public function addAction()
     {
-      $add = new Mahasiswa();
+      $add = new Student();
 
       $success = $add->save(
   			$this->request->getPost(),
-  			array('nim','name', 'department')
+  			array('id','name', 'address')
   		);
 
       if($success){
         $this->view->disable();
-        $this->flashSession->success('Berhasil menyimpan data');
+        $this->flashSession->success('Data saved successfully');
         $this->response->redirect('index');
       }
       else{
         $this->view->disable();
-        $this->flashSession->error('Gagal menyimpan data');
+        $this->flashSession->error('Data failed to save');
         $this->response->redirect('index');
       }
     }
 
-    /*public function editAction($nim)
+    /*public function editAction($id)
     {
-      $mhs = Mahasiswa::findFirst($nim);
+      $mhs = Student::findFirst($id);
 
-   		$this->view->nim=$mhs->nim;
+   		$this->view->id=$mhs->id;
    		$this->view->name=$mhs->name;
-   		$this->view->department=$mhs->department;
+   		$this->view->address=$mhs->address;
     }*/
 
     public function updateAction()
    	{
-   		$nim = $this->request->getPost("nim");
-   		$mhs = Mahasiswa::findFirst($nim);
+   		$id = $this->request->getPost("id");
+   		$mhs = Student::findFirst($id);
 
-      $mhs->nim = $nim;
+      $mhs->id = $id;
    		$mhs->name = $this->request->getPost("name");
-   		$mhs->department = $this->request->getPost("department");
+   		$mhs->address = $this->request->getPost("address");
 
    		if (!$mhs->save()) {
         $this->view->disable();
-        $this->flashSession->success('Berhasil mengubah data');
+        $this->flashSession->success('Successfully changed data');
         $this->response->redirect('index');
       }
       else
     	{
         $this->view->disable();
-        $this->flashSession->error('Gagal mengubah data');
+        $this->flashSession->error('Failed to change data');
         $this->response->redirect('index');
       }
    	}
 
-    public function deleteAction($nim){
-      $user = Mahasiswa::findFirst($nim);
+    public function deleteAction($id){
+      $user = Student::findFirst($id);
       $user->delete();
 
       return $this->response->redirect('index');
