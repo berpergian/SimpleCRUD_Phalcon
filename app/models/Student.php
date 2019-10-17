@@ -1,5 +1,5 @@
 <?php
-class Mahasiswa extends \Phalcon\Mvc\Model
+class Student extends \Phalcon\Mvc\Model
 {
   public $id;
   public $name;
